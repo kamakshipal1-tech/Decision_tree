@@ -1,0 +1,26 @@
+id	parentId	type	text	options	target
+START	null	start	Good evening. Let's reflect on your day.		
+A1_OPEN	START	question	How would you describe your day overall?	Productive|Challenging|Neutral|Frustrating	A1_D1
+A1_D1	A1_OPEN	decision	Evaluate sense of control		
+A1_Q_HIGH	A1_D1	question	When something went wrong, what did you do?	I took responsibility|I adapted quickly	A1_R_INT
+A1_Q_LOW	A1_D1	question	When something went wrong, what did you feel?	Things were out of my control|I waited for others	A1_R_EXT
+A1_R_INT	A1_Q_HIGH	reflection	You showed strong personal agency today.		
+A1_R_EXT	A1_Q_LOW	reflection	You may have felt external pressure or lack of control.		
+BRIDGE_1_2	A1_R_INT	bridge	Now letâs think about your contribution.		A2_OPEN
+BRIDGE_1_2B	A1_R_EXT	bridge	Letâs shift focus to what you gave today.		A2_OPEN
+A2_OPEN	BRIDGE_1_2	question	What best describes your contribution today?	Helped others|Did extra work|Focused only on tasks|Expected recognition	A2_D1
+A2_D1	A2_OPEN	decision	Evaluate contribution vs entitlement		
+A2_Q_HIGH	A2_D1	question	How did you go beyond expectations?	Helped team|Improved process	A2_R_CONTRIB
+A2_Q_LOW	A2_D1	question	What frustrated you today?	Lack of recognition|Others not contributing	A2_R_ENTITLE
+A2_R_CONTRIB	A2_Q_HIGH	reflection	You demonstrated a contribution mindset.		
+A2_R_ENTITLE	A2_Q_LOW	reflection	You may be focusing more on what you received.		
+BRIDGE_2_3	A2_R_CONTRIB	bridge	Now think about impact beyond yourself.		A3_OPEN
+BRIDGE_2_3B	A2_R_ENTITLE	bridge	Letâs expand perspective outward.		A3_OPEN
+A3_OPEN	BRIDGE_2_3	question	Who was most impacted by your actions today?	Myself|My team|A colleague|Customers	A3_D1
+A3_D1	A3_OPEN	decision	Evaluate radius of concern		
+A3_Q_SELF	A3_D1	question	What mattered most today?	My tasks|My goals	A3_R_SELF
+A3_Q_WIDE	A3_D1	question	Who did you consider while working?	Team|Colleague|Customer	A3_R_ALTRO
+A3_R_SELF	A3_Q_SELF	reflection	Your focus was primarily self-oriented today.		
+A3_R_ALTRO	A3_Q_WIDE	reflection	You demonstrated awareness beyond yourself.		
+SUMMARY	A3_R_ALTRO	summary	Today you showed growth across reflection dimensions.		
+END	SUMMARY	end	See you tomorrow.		
